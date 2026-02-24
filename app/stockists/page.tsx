@@ -58,7 +58,7 @@ export default function StockistsPage() {
               </h1>
               <p className="mt-4 max-w-lg mx-auto text-muted-foreground leading-relaxed">
                 Soko Gin is available at select retailers, bars, and online
-                shops across the globe.
+                shops.
               </p>
             </div>
           </div>

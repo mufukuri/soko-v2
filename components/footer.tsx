@@ -15,8 +15,7 @@ export function Footer() {
             </span>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               A luxury craft spirit born of African heritage. Every sip tells a
-              story of tradition, craftsmanship, and the spirit of the
-              marketplace.
+              story of tradition, craftsmanship, and the spirit of Africa.
             </p>
           </div>
 
