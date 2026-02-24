@@ -40,9 +40,9 @@ const products = [
     aroma: "Fresh juniper, orange zest, and a whisper of coriander with floral undertones.",
     finish: "Long, warm, and elegantly dry with lingering notes of citrus and spice.",
     pairings: [
-      "Premium Indian tonic water with an orange wheel",
-      "Fresh seafood and grilled citrus dishes",
-      "Dark chocolate with a hint of sea salt",
+      "Sparkling water and fresh citrus peel",
+      "Grilled prawns with garlic butter",
+      "Orange almond cake"
     ],
   },
   
@@ -58,9 +58,10 @@ const products = [
     aroma: "Floral nose of elderflower & honeysuckle with the presence of freshly bloomed rose pedals.",
     finish: "Floral, almost fruity aftertaste of gingery warmth, elderflower and a slight black pepper finish.",
     pairings: [
-      "Premium Indian tonic water with an orange wheel",
-      "Fresh seafood and grilled citrus dishes",
-      "Dark chocolate with a hint of sea salt",
+    
+      "Elderflower tonic, Elderflower cordial, tonic andflower petals",
+      "Chicken with light cream sauce",
+      "White chocolate desserts"
     ],
   }
 ]
