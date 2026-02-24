@@ -324,7 +324,7 @@ export default function ContactPage() {
         </section>
 
         {/* Shipping Info */}
-        <section id="shipping" className="py-24">
+        {/* <section id="shipping" className="py-24">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <p className="text-xs tracking-[0.3em] uppercase text-accent mb-4">
               Shipping Information
@@ -345,7 +345,7 @@ export default function ContactPage() {
               drinking age in your country to order Soko Gin.
             </p>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </>
