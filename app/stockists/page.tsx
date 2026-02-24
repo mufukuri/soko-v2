@@ -15,8 +15,8 @@ const regions = [
   {
     name: "Southern Africa",
     stockists: [
-      { name: "Cape Wine Merchants", location: "Johannesburg, South Africa", type: "Restaurant" },
-      { name: "The Spirit Library", location: "Harare, Zimbabwe", type: "Retail" },
+      { name: "Monkey on the Elephant (Mote)", location: "Johannesburg, South Africa", type: "Restaurant" },
+      { name: "Little Gin Shop", location: "Harare, Zimbabwe", type: "Retail" },
     ],
   },
   
