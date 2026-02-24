@@ -11,38 +11,16 @@ export const metadata: Metadata = {
 }
 
 const regions = [
-  {
-    name: "East Africa",
-    stockists: [
-      { name: "Nairobi Wine & Spirits", location: "Nairobi, Kenya", type: "Retail" },
-      { name: "The Vine Boutique", location: "Nairobi, Kenya", type: "Retail" },
-      { name: "Craft Bar Dar", location: "Dar es Salaam, Tanzania", type: "Bar" },
-      { name: "Kampala Fine Spirits", location: "Kampala, Uganda", type: "Retail" },
-    ],
-  },
+  
   {
     name: "Southern Africa",
     stockists: [
-      { name: "Cape Wine Merchants", location: "Cape Town, South Africa", type: "Retail" },
-      { name: "The Spirit Library", location: "Johannesburg, South Africa", type: "Retail" },
-      { name: "Kigali Premium Drinks", location: "Kigali, Rwanda", type: "Retail" },
+      { name: "Cape Wine Merchants", location: "Johannesburg, South Africa", type: "Restaurant" },
+      { name: "The Spirit Library", location: "Harare, Zimbabwe", type: "Retail" },
     ],
   },
-  {
-    name: "Europe",
-    stockists: [
-      { name: "The Whisky Exchange", location: "London, UK", type: "Online" },
-      { name: "Maison du Whisky", location: "Paris, France", type: "Retail" },
-      { name: "Spirit Hub Berlin", location: "Berlin, Germany", type: "Retail" },
-    ],
-  },
-  {
-    name: "North America",
-    stockists: [
-      { name: "Craft Spirits Co.", location: "New York, USA", type: "Online" },
-      { name: "The Botanist Bar", location: "Los Angeles, USA", type: "Bar" },
-    ],
-  },
+  
+  
 ]
 
 const channels = [
