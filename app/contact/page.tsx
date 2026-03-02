@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "What botanicals are used in Soko Gin?",
     answer:
-      "Soko Dry Gin features a blend of 12 carefully selected botanicals including juniper berries, orange peel, lemon peel, coriander seeds, cardamom, grains of paradise, dried hibiscus, and angelica root, among others.",
+      "Soko Gin features a blend of carefully selected botanicals including juniper berries, coriander, angelica root, indonesian cinnamon, dried ginger, nutmeg, hibiscus, elderflower, rose petals, cassia bark, grains of paradise.",
   },
   
   {

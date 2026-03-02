@@ -20,7 +20,7 @@ const timeline = [
     year: "The Journey",
     title: "Sourcing the Finest Botanicals",
     description:
-      "Travels across the continent to discover rare and remarkable botanicals. From the markets of East Africa to the coastal groves, each ingredient was selected for its story as much as its flavor.",
+  "Travels across the world led to the discovery of unique tastes and remarkable botanicals, inspiring the curation of Soko Gin.",
   },
   {
     year: "The Craft",

@@ -39,7 +39,7 @@ const botanicals = [
   },
   {
     name: "Grains of Paradise",
-    description: "A peppery, warm spice native to West Africa",
+    description: "A peppery, warm spice native to Africa",
     icon: (
       <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2l2 4 4 1-3 3 1 5-4-2-4 2 1-5-3-3 4-1z" />
