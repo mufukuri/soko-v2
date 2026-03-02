@@ -70,12 +70,7 @@ export function Footer() {
               >
                 FAQ
               </Link>
-              <Link
-                href="/contact#shipping"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Shipping Info
-              </Link>
+             
             </div>
           </div>
 
@@ -88,9 +83,7 @@ export function Footer() {
               <span className="text-sm text-muted-foreground">
                 Privacy Policy
               </span>
-              <span className="text-sm text-muted-foreground">
-                Terms of Service
-              </span>
+             
             </div>
             <div className="mt-6 flex gap-4">
               <a

@@ -11,27 +11,23 @@ const faqs = [
   {
     question: "Where can I buy Soko Gin?",
     answer:
-      "Soko Gin is available at select retailers, bars, and online shops across Africa, Europe, and North America. Visit our Where to Buy page for a full list of stockists.",
+      "Soko Gin is available at select retailers, bars, and online shops across Southern Africa. Visit our Where to Buy page for a full list of stockists.",
   },
   {
     question: "Do you ship internationally?",
     answer:
-      "Yes, we ship to most countries where alcohol delivery is permitted. Shipping times and costs vary by destination. Please check our stockists page for online retailers that deliver to your region.",
+      "No, we do not ship internationally. Contact us to enquire about a stockist in your area.",
   },
   {
     question: "What botanicals are used in Soko Gin?",
     answer:
       "Soko Dry Gin features a blend of 12 carefully selected botanicals including juniper berries, orange peel, lemon peel, coriander seeds, cardamom, grains of paradise, dried hibiscus, and angelica root, among others.",
   },
-  {
-    question: "Can I visit your distillery?",
-    answer:
-      "We offer private distillery tours and tastings by appointment. Please contact us to arrange a visit and experience the Soko Gin story firsthand.",
-  },
+  
   {
     question: "Are you looking for distribution partners?",
     answer:
-      "We are always interested in connecting with passionate retail and hospitality partners. Please reach out through the contact form below with details about your business and market.",
+      "Yes! We are always interested in connecting with passionate retail and hospitality partners. Please reach out through the contact form below with details about your business.",
   },
 ]
 
