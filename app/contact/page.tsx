@@ -5,6 +5,7 @@ import React from "react"
 import { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { ContactForm } from "@/components/contact-form"
 import { Mail, MapPin, Phone } from "lucide-react"
 
 const faqs = [
@@ -32,19 +33,7 @@ const faqs = [
 ]
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Form submission would be handled here
-    setFormData({ name: "", email: "", subject: "", message: "" })
-  }
 
   return (
     <>
@@ -172,94 +161,7 @@ export default function ContactPage() {
 
               {/* Contact Form */}
               <div className="lg:col-span-2">
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2"
-                      >
-                        Name
-                      </label>
-                      <input
-                        id="name"
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
-                        className="w-full bg-card border border-border px-4 py-3 text-foreground text-sm focus:outline-none focus:border-accent transition-colors"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2"
-                      >
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        className="w-full bg-card border border-border px-4 py-3 text-foreground text-sm focus:outline-none focus:border-accent transition-colors"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2"
-                    >
-                      Subject
-                    </label>
-                    <input
-                      id="subject"
-                      type="text"
-                      required
-                      value={formData.subject}
-                      onChange={(e) =>
-                        setFormData({ ...formData, subject: e.target.value })
-                      }
-                      className="w-full bg-card border border-border px-4 py-3 text-foreground text-sm focus:outline-none focus:border-accent transition-colors"
-                      placeholder="What is this about?"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={6}
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      className="w-full bg-card border border-border px-4 py-3 text-foreground text-sm focus:outline-none focus:border-accent transition-colors resize-none"
-                      placeholder="Tell us more..."
-                    />
-                  </div>
-                  <div>
-                    <button
-                      type="submit"
-                      className="inline-flex items-center justify-center px-8 py-3 text-sm tracking-[0.15em] uppercase bg-foreground text-background hover:bg-foreground/85 transition-colors duration-300"
-                    >
-                      Send Message
-                    </button>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
             </div>
           </div>
