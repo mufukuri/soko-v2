@@ -61,6 +61,24 @@ const cocktails = [
       "Combine all ingredients in a mixing glass filled with ice. Stir for 30 seconds until well-chilled. Strain into a rocks glass over a large ice sphere. Garnish with an expressed orange peel.",
     tip: "The grains of paradise in Soko Gin add a wonderful peppery warmth that complements the bitterness of Campari beautifully.",
   },
+  {
+    name: "Soko Stina",
+    image: "/images/cocktail-4.jpg",
+    tagline: "Fresh, Crisp.",
+    description:
+      "A sun-soaked sip of summer, the Soko Stina pairs the bold African botanicals of Soko Gin with the crisp essence of citrus and the lush, sweet taste of watermelon.",
+    ingredients: [
+      "60ml Soko Citrus Gin (Hero spirit)",
+      "30ml Freshly squeezed lime juice (Citrus backbone)",
+      "20ml Watermelon syrup* (Sweetness & flavor)",
+      "10ml Simple syrup (optional, adjust based on sweetness of watermelon)",
+      "90ml Chilled Soda water / Tonic Water (Top up)",
+      "Watermelon wedge and mint sprig for garnish"
+    ],
+    method:
+      "Shake all ingredients vigorously with ice. Strain into a chilled highball glass over fresh ice. Top with soda water. Garnish with a watermelon wedge and mint sprig.",
+    tip: "The bright citrus notes in Soko Gin are amplified by fresh lime, while the watermelon adds a juicy sweetness that balances the botanicals perfectly.",
+  }
 ]
 
 export default function CocktailsPage() {

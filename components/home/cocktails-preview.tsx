@@ -17,6 +17,11 @@ const cocktails = [
     image: "/images/cocktail-3.jpg",
     description: "Bold, bittersweet, and beautifully balanced",
   },
+   {
+    name: "Soko Stina",
+    image: "/images/cocktail-4.jpg",
+    description: "A vibrant and refreshing cocktail that marries the bright, zesty notes of Soko Citrus Gin with the sweet, juicy finish of fresh watermelon.",
+  }
 ]
 
 export function CocktailsPreview() {
