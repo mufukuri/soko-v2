@@ -39,8 +39,11 @@ function sanitizeInput(input: string): string {
 
 export async function POST(request: NextRequest) {
   try {
-    // Get IP for rate limiting
-    const ip = request.ip || request.headers.get("x-forwarded-for") || "unknown"
+    // Get IP for rate limiting (Vercel provides this in headers)
+    const ip = 
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      "unknown"
 
     // Rate limiting
     if (!checkRateLimit(ip)) {
