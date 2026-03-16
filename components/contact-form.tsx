@@ -8,6 +8,7 @@ interface ContactFormData {
   email: string
   subject: string
   message: string
+  honeypot?: string // Bot detection field
 }
 
 export function ContactForm() {
@@ -63,6 +64,16 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+      {/* Honeypot field for bot detection - hidden from users */}
+      <div className="absolute left-[-9999px]" aria-hidden="true">
+        <input
+          type="text"
+          {...register("honeypot")}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label

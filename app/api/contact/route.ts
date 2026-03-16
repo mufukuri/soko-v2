@@ -6,17 +6,71 @@ interface ContactFormData {
   email: string
   subject: string
   message: string
+  honeypot?: string // Bot detection field
+}
+
+// Simple in-memory rate limiting (use Redis/Upstash in production)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now()
+  const limit = rateLimitMap.get(ip)
+
+  if (!limit || now > limit.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + 60000 }) // 1 minute window
+    return true
+  }
+
+  if (limit.count >= 3) {
+    // Max 3 requests per minute
+    return false
+  }
+
+  limit.count++
+  return true
+}
+
+function sanitizeInput(input: string): string {
+  return input
+    .trim()
+    .replace(/[<>]/g, "") // Remove potential HTML tags
+    .substring(0, 2000) // Limit length
 }
 
 export async function POST(request: NextRequest) {
   try {
+    // Get IP for rate limiting
+    const ip = request.ip || request.headers.get("x-forwarded-for") || "unknown"
+
+    // Rate limiting
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json(
+        { message: "Too many requests. Please try again later." },
+        { status: 429 }
+      )
+    }
+
     const body: ContactFormData = await request.json()
-    const { name, email, subject, message } = body
+    const { name, email, subject, message, honeypot } = body
+
+    // Honeypot check (bot detection)
+    if (honeypot) {
+      console.log("Bot detected via honeypot")
+      return NextResponse.json({ message: "Email sent successfully" }, { status: 200 })
+    }
 
     // Validate input
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { message: "All fields are required" },
+        { status: 400 }
+      )
+    }
+
+    // Length validation
+    if (name.length > 100 || subject.length > 200 || message.length > 2000) {
+      return NextResponse.json(
+        { message: "Input exceeds maximum length" },
         { status: 400 }
       )
     }
@@ -27,6 +81,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { message: "Invalid email address" },
         { status: 400 }
+      )
+    }
+
+    // Sanitize inputs
+    const sanitizedName = sanitizeInput(name)
+    const sanitizedSubject = sanitizeInput(subject)
+    const sanitizedMessage = sanitizeInput(message)
+
+    // Verify environment variables are set
+    if (
+      !process.env.SMTP_HOST ||
+      !process.env.SMTP_USER ||
+      !process.env.SMTP_PASSWORD
+    ) {
+      console.error("SMTP configuration missing")
+      return NextResponse.json(
+        { message: "Email service not configured" },
+        { status: 500 }
       )
     }
 
@@ -46,7 +118,7 @@ export async function POST(request: NextRequest) {
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: "info@sokogin.com",
       replyTo: email,
-      subject: `Contact Form: ${subject}`,
+      subject: `Contact Form: ${sanitizedSubject}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -64,7 +136,7 @@ export async function POST(request: NextRequest) {
             <div style="background-color: #ffffff; padding: 30px; border: 1px solid #e9ecef; border-radius: 10px;">
               <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e9ecef;">
                 <p style="margin: 0 0 8px 0; color: #7f8c8d; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Name</p>
-                <p style="margin: 0; color: #2c3e50; font-size: 16px; font-weight: 500;">${name}</p>
+                <p style="margin: 0; color: #2c3e50; font-size: 16px; font-weight: 500;">${sanitizedName}</p>
               </div>
               
               <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e9ecef;">
@@ -74,12 +146,12 @@ export async function POST(request: NextRequest) {
               
               <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e9ecef;">
                 <p style="margin: 0 0 8px 0; color: #7f8c8d; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Subject</p>
-                <p style="margin: 0; color: #2c3e50; font-size: 16px; font-weight: 500;">${subject}</p>
+                <p style="margin: 0; color: #2c3e50; font-size: 16px; font-weight: 500;">${sanitizedSubject}</p>
               </div>
               
               <div style="margin-bottom: 0;">
                 <p style="margin: 0 0 12px 0; color: #7f8c8d; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Message</p>
-                <p style="margin: 0; color: #2c3e50; font-size: 15px; line-height: 1.8; white-space: pre-wrap;">${message}</p>
+                <p style="margin: 0; color: #2c3e50; font-size: 15px; line-height: 1.8; white-space: pre-wrap;">${sanitizedMessage}</p>
               </div>
             </div>
             
@@ -95,12 +167,12 @@ export async function POST(request: NextRequest) {
       text: `
 New Contact Form Submission
 
-Name: ${name}
+Name: ${sanitizedName}
 Email: ${email}
-Subject: ${subject}
+Subject: ${sanitizedSubject}
 
 Message:
-${message}
+${sanitizedMessage}
 
 ---
 This email was sent from the Soko Gin website contact form.
@@ -117,11 +189,9 @@ Received on ${new Date().toLocaleString()}
     )
   } catch (error) {
     console.error("Error sending email:", error)
+    // Don't leak error details to client
     return NextResponse.json(
-      {
-        message: "Failed to send email. Please try again later.",
-        error: error instanceof Error ? error.message : "Unknown error",
-      },
+      { message: "Failed to send email. Please try again later." },
       { status: 500 }
     )
   }
