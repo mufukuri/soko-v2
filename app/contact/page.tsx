@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ContactForm } from "@/components/contact-form"
-import { Mail, MapPin, Phone } from "lucide-react"
+import { MapPin, Phone } from "lucide-react"
 
 const faqs = [
   {
@@ -66,31 +66,6 @@ export default function ContactPage() {
                 <div className="flex flex-col gap-8">
                   <div>
                     <div className="flex items-center gap-3 mb-3">
-                      <Mail className="w-5 h-5 text-accent" />
-                      <h3 className="text-xs tracking-[0.2em] uppercase text-accent">
-                        Email
-                      </h3>
-                    </div>
-                    <a
-                      href="mailto:info@sokogin.com"
-                      className="text-foreground hover:text-foreground transition-colors"
-                    >
-                      info@sokogin.com
-                    </a>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <Phone className="w-5 h-5 text-accent" />
-                      <h3 className="text-xs tracking-[0.2em] uppercase text-accent">
-                        Phone
-                      </h3>
-                    </div>
-                    <p className="text-foreground">+27 83 602 6260</p>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-3 mb-3">
                       <MapPin className="w-5 h-5 text-accent" />
                       <h3 className="text-xs tracking-[0.2em] uppercase text-accent">
                         Address
@@ -101,6 +76,16 @@ export default function ContactPage() {
                       <br />
                       Johannesburg, South Africa
                     </p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-3 mb-3">
+                      <Phone className="w-5 h-5 text-accent" />
+                      <h3 className="text-xs tracking-[0.2em] uppercase text-accent">
+                        Phone
+                      </h3>
+                    </div>
+                    <p className="text-foreground">+27 68 174 8514</p>
                   </div>
 
                   {/* Social */}
