@@ -196,7 +196,7 @@ export default function PrivacyPolicyPage() {
                     <strong className="text-foreground">Email:</strong> privacy@sokogin.com
                   </p>
                   <p className="text-muted-foreground mt-2">
-                    <strong className="text-foreground">Address:</strong> Soko Gin, [Your Business Address]
+                    <strong className="text-foreground">Address:</strong> Soko Gin, 7 De Rust Close, Lone Hill, Sandton, Johannesburg
                   </p>
                 </div>
               </div>
