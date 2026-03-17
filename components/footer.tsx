@@ -80,9 +80,12 @@ export function Footer() {
               Legal
             </h4>
             <div className="flex flex-col gap-3">
-              <span className="text-sm text-muted-foreground">
+              <Link
+                href="/privacy-policy"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
                 Privacy Policy
-              </span>
+              </Link>
              
             </div>
             <div className="mt-6 flex gap-4">
