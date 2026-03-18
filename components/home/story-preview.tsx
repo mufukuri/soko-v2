@@ -29,9 +29,8 @@ export function StoryPreview() {
               Crafted with Purpose
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed text-pretty">
-              The name Soko draws from the Swahili word for marketplace — a
-              vibrant space where people, stories, and cultures converge. Our gin
-              is inspired by the rich tapestry of African botanicals and the
+              The name Soko draws from the Shona totem for the monkey — is a symbol of connection, memory and curiosity.
+               Our gin is inspired by the rich tapestry of African botanicals and the
               founder{"'"}s vision to share this heritage with the world.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed text-pretty">
