@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 
@@ -19,13 +20,14 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/40">
       <div className="mx-auto max-w-7xl flex items-center justify-between px-6 py-5">
-        <Link href="/" className="flex items-center gap-1.5">
-          <span className="font-serif text-3xl tracking-widest text-foreground font-light">
-            SOKO
-          </span>
-          <span className="text-[10px] tracking-[0.35em] text-muted-foreground uppercase mt-1">
-            Gin
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image 
+            src="/images/logo.svg" 
+            alt="Soko Gin" 
+            width={120} 
+            height={40}
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
