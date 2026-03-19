@@ -193,11 +193,9 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <div className="bg-card p-6 rounded-lg border border-border">
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Email:</strong> privacy@sokogin.com
+                    <strong className="text-foreground">Email:</strong> info@sokogin.com
                   </p>
-                  <p className="text-muted-foreground mt-2">
-                    <strong className="text-foreground">Address:</strong> Soko Gin, 7 De Rust Close, Lone Hill, Sandton, Johannesburg
-                  </p>
+                  
                 </div>
               </div>
 
